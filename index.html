@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>Di3tary Dashboard</h1>
+
+    <div id="userInfoContainer" class="container">
+        <form id="userInfoForm">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <br>
+            <br>
+
+            <label for="weight">Weight (lbs):</label>
+            <input type="number" id="weight" name="weight" min="0" required placeholder="Enter your body weight (lbs)">
+            <br>
+            <br>
+
+            <div class="height-input">
+                <label for="heightFeet">Height (Feet):</label>
+                <input type="number" id="heightFeet" name="heightFeet" min="0" required placeholder="Feet">
+            </div>
+            <div class="height-input">
+                <label for="heightInches">(Inches):</label>
+                <input type="number" id="heightInches" name="heightInches" min="0" max="11" required placeholder="Inches">
+            </div>
+            <br>
+            <br>
+
+            <label for="age">Age (years):</label>
+            <input type="number" id="age" name="age" min="0" required placeholder="Enter your age (years)">
+            <br>
+            <br>
+
+            <label for="activity">Physical Activity Level (per day):</label>
+            <select id="activity" name="activity">
+                <option value="sedentary">Sedentary</option>
+                <option value="light">Lightly Active</option>
+                <option value="moderate">Moderately Active</option>
+                <option value="very">Very Active</option>
+                <option value="extra">Extra Active</option>
+            </select>
+            <br>
+            <br>
+
+            <label for="goal">Nutrition Goals:</label>
+            <select id="goal" name="goal">
+                <option value="gain">Gain Weight</option>
+                <option value="maintain">Maintain Weight</option>
+                <option value="lose">Lose Weight</option>
+            </select>
+            <br>
+            <br>
+
+            <button type="submit" id="submitBtn">Submit</button>
+        </form>
+    </div>
+
+    <div id="mealSearchContainer" class="container hidden">
+        <div id="meals" class="hidden">
+
+            <h2>Breakfast</h2>
+            <ul id="breakfastList"></ul>
+
+            <h2>Lunch</h2>
+            <ul id="lunchList"></ul>
+
+            <h2>Dinner</h2>
+            <ul id="dinnerList"></ul>
+
+            <h2>Snacks</h2>
+            <ul id="snacksList"></ul>
+
+            <label for="searchInput">Search Food:</label>
+            <input type="text" id="searchInput" name="searchInput">
+            <br>
+            <br>
+
+            <select id="searchDropdown"></select>
+            <button id="addToMealBtn">Add to Meal</button>
+
+            <!-- display portion information -->
+            <!-- <span id="portionInfo"></span> -->
+            <!-- <label for="servings">Servings:</label> -->
+            <!-- <input type="number" id="servings" name="servings" min="1" value="1"> -->
+
+            <label for="mealSelector">Select Meal:</label>
+            <select id="mealSelector">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snacks">Snacks</option>
+            </select>
+            <br>
+            <br>
+
+            <button id="calculateBtn">Calculate Nutrition</button>
+        </div>
+    </div>
+
+    <div id="visualizationContainer" class="container hidden">
+        <div class="container">
+            <div class="chart-container" id="barChartContainer">
+                <!-- Bar chart will be rendered here -->
+            </div>
+            <button id="viewButton">View Meal Bars</button>
+            <br>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <div class="chart-container" id="pieChartContainer">
+                <!-- Pie charts will be rendered here -->
+            </div>
+            <div class="chart-container" id="treemapContainer">
+                <!-- Treemap will be rendered here -->
+            </div>
+            <div id="buttonsContainer">
+                <button id="proteinButton">Protein</button>
+                <button id="fatButton">Fat</button>
+                <button id="carbsButton">Carbs</button>
+                <button id="caloriesButton">Calories</button>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <script src="processedData.js"></script>
+    <script src="tempData2.js"></script>
+    <script src="index.js"></script>
+    <script src="charts.js"></script>    
+</body>
+</html>
